@@ -1,17 +1,17 @@
 package com.example.TeamManager.TeamManager.configuration;
 
+import com.example.TeamManager.TeamManager.service.impl.UserDetailsService;
 import com.example.TeamManager.TeamManager.utils.AuthenticationFilter;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.authorization.AuthorizationManager;
+
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.access.intercept.AuthorizationFilter;
 import org.springframework.web.cors.CorsConfiguration;
@@ -34,7 +34,6 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
             "/swagger-ui.html",
             "/webjars/**"
     };
-    @Autowired
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
     private final UserDetailsService userDetailsService;
 
@@ -42,6 +41,11 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
         this.userDetailsService = userDetailsService;
+    }
+
+    @Bean
+    BCryptPasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
     }
 
     protected void configure(HttpSecurity httpSecurity) throws Exception {

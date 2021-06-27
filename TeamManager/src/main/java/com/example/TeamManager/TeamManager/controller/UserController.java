@@ -4,11 +4,9 @@ package com.example.TeamManager.TeamManager.controller;
 import com.example.TeamManager.TeamManager.domain.User;
 import com.example.TeamManager.TeamManager.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
-import javax.persistence.Id;
 
 @RestController
 @RequestMapping(value = "/v1/users")
