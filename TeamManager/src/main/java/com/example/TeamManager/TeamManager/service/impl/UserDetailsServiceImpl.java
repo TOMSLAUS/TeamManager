@@ -4,6 +4,7 @@ package com.example.TeamManager.TeamManager.service.impl;
 import com.example.TeamManager.TeamManager.domain.User;
 import com.example.TeamManager.TeamManager.repository.UserRepository;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
 
