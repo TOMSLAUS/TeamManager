@@ -3,21 +3,19 @@ package com.example.TeamManager.TeamManager.service.impl;
 
 import com.example.TeamManager.TeamManager.domain.User;
 import com.example.TeamManager.TeamManager.repository.UserRepository;
+import lombok.AllArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.util.Collections;
 
-@Component
+@Service
+@AllArgsConstructor
 public class UserDetailsServiceImpl implements UserDetailsService
         {
 private UserRepository userRepository;
-public UserDetailsServiceImpl(UserRepository userRepository)
-        {
-        this.userRepository = userRepository;
-        }
 
 @Override
 public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException
