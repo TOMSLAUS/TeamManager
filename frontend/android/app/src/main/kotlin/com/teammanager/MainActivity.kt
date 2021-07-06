@@ -1,0 +1,6 @@
+package com.teammanager
+
+import io.flutter.embedding.android.FlutterActivity
+
+class MainActivity: FlutterActivity() {
+}
